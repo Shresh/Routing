@@ -23,10 +23,6 @@ $(function() {
 		  required: true,
 		  date: true
 	  },
-      email: {
-        required: true,
-        email: true
-      },
 	  username:{
 		  required: true
 	  },
@@ -57,10 +53,6 @@ $(function() {
 		  required: "Please enter your Date of Birth",
 		  date: "Enter valid Date of Birth"
 	  },
-      email:{
-    	  required: "Please enter your Email",
-    	  email:  "Please enter a valid Email"
-      },
 	  username:{
 		  required: "Please enter your Username"
 	  },
