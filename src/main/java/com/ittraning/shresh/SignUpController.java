@@ -1,5 +1,6 @@
 package com.ittraning.shresh;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -26,11 +27,11 @@ public class SignUpController {
 	public String insert(@ModelAttribute Users users, Model model){
 		try {
 			usersDao.insert(users);
+			model.addAttribute("users", new Users());
 			model.addAttribute("successSignup", "Successfully registered user");
 		} catch (Exception e) {
 			model.addAttribute("failedSignup", "Failed to register user");
-		}		
-		model.addAttribute("users", new Users());
+		}				
 		return "signUp";
 	}
 }

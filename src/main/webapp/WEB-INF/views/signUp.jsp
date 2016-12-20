@@ -92,7 +92,7 @@
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-gift"></i></span> <input type="text"
 										name="dateOfBirth" id="dateOfBirth" class="form-control"
-										placeholder="Date of Birth(mm/dd/yyy)" aria-describedby="basic-addon1">
+										placeholder="Date of Birth(mm/dd/yyyy)" aria-describedby="basic-addon1">
 								</div>
 							</div>
 							<div class="form-group">
@@ -143,7 +143,8 @@
 										aria-describedby="basic-addon1">
 								</div>
 							</div>
-							<h6 style="color: red">${loginError}</h6>
+							<h6 style="color: red">${failedSignup}</h6>
+							<h6 style="color: green">${successSignup}</h6>
 							<button type="submit" class="btn btn-primary">
 								<i class="glyphicon glyphicon-log-in"></i> Sign Up
 							</button>

@@ -26,6 +26,7 @@ public class UsersDaoImpl implements UsersDao {
 	private DataSource dataSource;
 
 	@Override
+	@Transactional
 	public Long insert(Users users) {
 		Session session = sessionFactory.getCurrentSession();
 		Long id = (Long) session.save(users);

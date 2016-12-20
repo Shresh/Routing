@@ -22,13 +22,13 @@ public class Users {
 	@Column(name = "User_ID")
 	private long id;
 	@Column(name = "First_Name")
-	private String firtName;
+	private String firstName;
 	@Column(name = "Last_Name")
 	private String lastName;
 	@Column(name = "Date_Of_Birth")
 	@Type(type = "date")
-	@DateTimeFormat(pattern = "mm/dd/yyy")
-	private Date dob;
+	@DateTimeFormat(pattern = "mm/dd/yyyy")
+	private Date dateOfBirth;
 	@Column(name = "Gender")
 	private String gender;
 	@Column(name = "Contact_No")
@@ -47,14 +47,14 @@ public class Users {
 
 	public void setId(long id) {
 		this.id = id;
+	}	
+
+	public String getFirstName() {
+		return firstName;
 	}
 
-	public String getFirtName() {
-		return firtName;
-	}
-
-	public void setFirtName(String firtName) {
-		this.firtName = firtName;
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
 	}
 
 	public String getLastName() {
@@ -65,12 +65,12 @@ public class Users {
 		this.lastName = lastName;
 	}
 
-	public Date getDob() {
-		return dob;
+	public Date getDateOfBirth() {
+		return dateOfBirth;
 	}
 
-	public void setDob(Date dob) {
-		this.dob = dob;
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 
 	public String getGender() {
