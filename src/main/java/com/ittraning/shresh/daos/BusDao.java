@@ -8,4 +8,6 @@ public interface BusDao {
 	public Long insert(Bus bus);
 	public List<Bus> getAll();
 	public Bus get(Long id);
+	public void insertUpdate(Bus bus);
+	public void delete(Long id);
 }

@@ -77,4 +77,10 @@ public class UsersDaoImpl implements UsersDao {
 		return user;
 	}
 
+	@Override
+	public void insertUpdate(Users users) {
+		Session session = sessionFactory.getCurrentSession();
+		session.saveOrUpdate(users);
+	}
+
 }

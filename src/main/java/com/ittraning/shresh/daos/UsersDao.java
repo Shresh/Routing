@@ -10,4 +10,5 @@ public interface UsersDao {
 	public Users get(Long id);
 	public boolean validateuser(Users users);
 	public Users get(Users users);
+	public void insertUpdate(Users users);
 }
