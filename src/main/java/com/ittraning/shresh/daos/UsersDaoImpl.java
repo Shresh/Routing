@@ -35,14 +35,19 @@ public class UsersDaoImpl implements UsersDao {
 
 	@Override
 	public List<Users> getAll() {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.openSession();
+		Criteria criteria = session.createCriteria(Users.class);
+		List<Users> usersList = criteria.list();
+		session.close();
+		return usersList;
 	}
 
 	@Override
+	@Transactional
 	public Users get(Long id) {
-		// TODO Auto-generated method stub
-		return null;
+		Session session = sessionFactory.getCurrentSession();
+		Users user = (Users) session.get(Users.class, id);
+		return user;
 	}
 
 	@Override
@@ -68,7 +73,6 @@ public class UsersDaoImpl implements UsersDao {
 	@Transactional
 	public Users get(Users users) {
 		Session session = sessionFactory.getCurrentSession();
-
 		Criteria criteria = session.createCriteria(Users.class);
 		criteria.add(Restrictions.eq("username", users.getUsername()));
 		criteria.add(Restrictions.eq("password", users.getPassword()));
@@ -78,6 +82,7 @@ public class UsersDaoImpl implements UsersDao {
 	}
 
 	@Override
+	@Transactional
 	public void insertUpdate(Users users) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(users);

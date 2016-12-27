@@ -8,15 +8,15 @@ $(function() {
       // of an input field. Validation rules are defined
       // on the right side
       busNo:{
-		  required: true,
-		  customvalidation: true
+		  required: true
+		//  customvalidation: true
 	  }      
     },
     // Specify validation error messages
     messages: {
       busNo: {
-		  required: "Please enter Bus No",
-		  customvalidation: "Please enter valid value only"
+		  required: "Please enter Bus No"
+		//  customvalidation: "Please enter valid value only"
 	  } 
     },
     // Make sure the form is submitted to the destination defined
@@ -25,7 +25,18 @@ $(function() {
       form.submit();
     }
   });
-  $.validator.addMethod("customvalidation", function(value, element) {
-        return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
-    }, "busNo must contain only letters, numbers.");
+//  $.validator.addMethod("customvalidation", function(value, element) {
+//        return this.optional(element) || /^[a-zA-Z0-9]+$/.test(value);
+//    }, "busNo must contain only letters, numbers.");
+  
+//$.validator.addMethod("customvalidation", function(value, element) {
+//	var regex = new RegExp("^[!@#$%^&*()+=-[]\\\';,./{}|\":<>?]+$");
+//	var key = value;
+//	
+//	if(regex.test(key)){
+//		return false; 
+//	}else{
+//		return true;
+//	}
+//}, "busNo must contain only letters, numbers.");
 });

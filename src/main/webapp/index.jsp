@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
+<%@ include file="/WEB-INF/views/clear.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,31 +11,38 @@
 <link
 	href="${pageContext.request.contextPath}/resources/css/bootstrap.min.css"
 	rel="stylesheet">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/Article-Clean.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/Footer-Clean.css">
+<link rel="stylesheet"
+	href="${pageContext.request.contextPath}/resources/css/Navigation-with-Button1.css">
 <title>Routing</title>
 </head>
 <body>
 	<!-- Start navbar -->
-	<nav class="navbar navbar-default navbar-inverse"
+	<nav class="navbar navbar-inverse navigation-clean-button"
 		style="border-radius: 0px !important; margin-bottom: 0px;">
 		<div class="container-fluid">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle collapsed"
-					data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+					data-toggle="collapse" data-target="#navcol-1" aria-expanded="false"
 					aria-controls="navbar">
 					<span class="sr-only">Toggle navigation</span> <span
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" class="active" href="">Routing</a>
+				<a class="navbar-brand navbar-link" class="active" href="">Routing</a>
 			</div>
 
-			<div id="navbar" class="navbar-collapse collapse">
-				<ul class="nav navbar-nav navbar-right">
-					<li><a href="signUp"><span
-							class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-					<li><a href="login"><span
-							class="glyphicon glyphicon-log-in"></span> Login</a></li>
-				</ul>
+			<div id="navcol-1" class="collapse navbar-collapse">
+
+				<p class="navbar-text navbar-right actions">
+					<a href="signUp" class="btn btn-default action-button" role="button"><span
+							class="glyphicon glyphicon-user"></span> Sign Up</a>
+					<a href="login" class="nav-bar-link login"><span
+							class="glyphicon glyphicon-log-in"></span> Login</a>
+				</p>
 			</div>
 			<!--/.nav-collapse -->
 		</div>
@@ -68,12 +76,40 @@
 			<div class="col-md-4"></div>
 		</div>
 	</div>
-	<div class="container-fluid">
 		<hr />
-		<div class="panel-footer clearfix">
-			<h6 style="text-align: right">Shreesh Prasad Shrestha</h6>
+		<div class="footer-clean">
+			<footer>
+				<div class = "container-fluid">
+					<div class = "row">
+						<div class = "col-md-3 col-sm-1 item">					
+						</div>
+						<div class = "col-md-3 col-sm-1 item">	
+						</div>
+						<div class = "col-md-3 col-sm-1 item">		
+							<h3>About</h3>
+								<ul>
+									<li><a href= "#">Team</a> </li>
+								</ul>					
+						</div>
+						<div class = "col-md-3 item social">
+							<a href = "#">
+								<i class = "icon ion-social-facebook"></i>
+							</a>					
+							<a href = "#">
+								<i class = "icon ion-social-twitter"></i>
+							</a>				
+							<a href = "#">
+								<i class = "icon ion-social-snapchat"></i>
+							</a>					
+							<a href = "#">
+								<i class = "icon ion-social-instagram"></i>
+							</a>
+							<p class = "copyright">Shreesh Prasad Shrestha@2016</p>				
+						</div>
+					</div>
+				</div>
+			</footer>
 		</div>
-	</div>
 	<script type="text/javascript"
 		src="${pageContext.request.contextPath}/resources/js/jquery-1.12.3.min.js"></script>
 	<script

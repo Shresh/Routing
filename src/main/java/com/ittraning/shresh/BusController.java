@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.hibernate.engine.internal.TwoPhaseLoad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -36,6 +37,8 @@ public class BusController {
 	@RequestMapping(value = "adBus", method = RequestMethod.POST)
 	public String insert(@ModelAttribute Bus bus, Model model) {
 		try {
+			String b = bus.getBusNo().concat("A");
+			bus.setBusNo(b);
 			busDao.insert(bus);
 			model.addAttribute("successAdd", "Bus succesfully added");
 		} catch (Exception e) {
@@ -64,7 +67,7 @@ public class BusController {
 			return "redirect:../login";
 		} else {
 			model.addAttribute("bus", busDao.get(id));
-			Bus bus = busDao.get(id);
+			//Bus bus = busDao.get(id);
 			return "editBus";
 		}
 	}
@@ -78,8 +81,7 @@ public class BusController {
 			try {
 				busDao.delete(id);
 			} catch (Exception e) {
-				model.addAttribute("errorDelete",
-						"Sorry cannot delete this data because of the association with other table.");
+				model.addAttribute("errorDelete","Sorry cannot delete this data because of the association with other table.");
 			}
 			return "redirect:../viewBus";
 		}

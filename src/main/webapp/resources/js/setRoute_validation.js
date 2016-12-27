@@ -14,11 +14,7 @@ $(function() {
 	  time: {
 		required: true,
 		customvalidation: true
-	  },
-      price: {
-        required: true,
-        digits: true
-      }
+	  }
     },
     // Specify validation error messages
     messages: {
@@ -29,11 +25,7 @@ $(function() {
 	  time:{
 		  required: "Please enter time",
 		  customvalidation: "Enter valid Time"
-	  },
-	  price: {
-        required: "Please enter Price",
-        digits: "Please enter numeric values only"
-      }
+	  }
     },
     // Make sure the form is submitted to the destination defined
     // in the "action" attribute of the form when valid

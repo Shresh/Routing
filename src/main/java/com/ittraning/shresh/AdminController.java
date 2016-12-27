@@ -59,13 +59,13 @@ public class AdminController {
 	}
 
 	@RequestMapping(value = "/updateAdminProfile", method = RequestMethod.POST)
-	public String updateadminProfile(Model model, @ModelAttribute Users user,HttpSession session) {
+	public String updateadminProfile(Model model, @ModelAttribute Users user, HttpSession session) {
 		String loginUser = (String) session.getAttribute("activeUser");
 		if (StringUtils.isEmpty(loginUser)) {
 			return "redirect:login";
 		} else {
-		userDao.insertUpdate(user);
-		return "redirect:adminVProfile";
+			userDao.insertUpdate(user);
+			return "redirect:adminVProfile";
 		}
 	}
 }

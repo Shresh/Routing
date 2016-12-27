@@ -14,17 +14,17 @@ public class Location {
 	@Column(name = "Location_ID")
 	private long id;
 	@Column(name = "Location")
-	private long location;
+	private String location;
 	public long getId() {
 		return id;
 	}
 	public void setId(long id) {
 		this.id = id;
 	}
-	public long getLocation() {
+	public String getLocation() {
 		return location;
 	}
-	public void setLocation(long location) {
+	public void setLocation(String location) {
 		this.location = location;
 	}	
 }

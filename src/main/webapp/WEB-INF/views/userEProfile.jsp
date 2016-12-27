@@ -18,6 +18,10 @@
 <script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/jquery-1.12.3.min.js"></script>
 <script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/validate/dist/jquery.validate.min.js"></script>
+<script type="text/javascript"
+	src="${pageContext.request.contextPath}/resources/js/form_validation.js"></script>
+<script type="text/javascript"
 	src="${pageContext.request.contextPath}/resources/js/dataTables.bootstrap.js"></script>
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/Article-Clean.css">
@@ -25,11 +29,12 @@
 	href="${pageContext.request.contextPath}/resources/css/Footer-Clean.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/Navigation-with-Button1.css">
-<title>View Profile</title>
+<title>Edit Profile</title>
 </head>
 <body>
+	
 	<!-- Start navbar -->
-	<nav class="navbar navbar-inverse navigation-clean-button"
+	<nav class="navbar navbar-inverse navigation-clean-button  navbar-fixed-top "
 		style="border-radius: 0px !important; margin-bottom: 0px;">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -41,48 +46,27 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand navbar-link" href="adminHome">Routing</a>
+				<a class="navbar-brand navbar-link" href="userhome">Routing</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navcol-1">
+			<div class="collapse navbar-collapse"
+				id="navcol-1">
 				<ul class="nav navbar-nav">
-					<li role="presentation"><a href="adminHome">Home
-							<span class="sr-only"></span>
-					</a></li>
+					<li role = "presentation"><a href="userhome">Home <span
+							class="sr-only"></span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation" class = "active"><a href="adminVProfile">View
-									Profile</a></li>
-							<li role="presentation"><a href="adminEProfile">Edit
-									Profile</a></li>
-						</ul></li>
-					<li class="dropdown" role="presentation"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Bus<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="adBus">Add Bus</a></li>
-							<li role="presentation"><a href="viewBus">View Bus</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Profile<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation"><a href="userVProfile">View Profile</a></li>
+							<li role = "presentation" class = "active"><a href="userEProfile">Edit Profile</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addLocation">Add
-									Location</a></li>
-							<li role="presentation"><a href="viewLocation">View
-									Location</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Set
-							Route<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addRoute">Add Route</a></li>
-							<li role="presentation"><a href="viewRoute">View Route</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Route<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation"><a href="userViewRoute">View Route</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -99,6 +83,7 @@
 	<p>
 		<br /> <br /> <br /> <br /> <br /> <br />
 	</p>
+	
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-md-4"></div>
@@ -110,13 +95,13 @@
 						</div>
 						<!-- Start Form -->
 						<form:form method="POST" modelAttribute="user"
-							action="adminProfile">
+							action="${pageContext.request.contextPath}/updateUserProfile" name="registration" onsubmit="return validate();">
 							<div class="form-group">
 								<label for="firstName">First Name</label>
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-user"></i></span>
-									<form:input path="firstName" disabled="true"
+									<form:input path="firstName" disabled="false"
 										class="form-control" aria-describedby="basic-addon1" />
 								</div>
 							</div>
@@ -125,7 +110,7 @@
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-user"></i></span>
-									<form:input path="lastName" disabled="true"
+									<form:input path="lastName" disabled="false"
 										class="form-control" aria-describedby="basic-addon1" />
 								</div>
 							</div>
@@ -134,7 +119,7 @@
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-gift"></i></span>
-									<form:input path="dateOfBirth" disabled="true"
+									<form:input path="dateOfBirth" disabled="false"
 										class="form-control" aria-describedby="basic-addon1" />
 								</div>
 							</div>
@@ -144,11 +129,11 @@
 
 
 									<label class="radio-inline"> <form:radiobutton
-											path="gender" value="Male" disabled="true" />Male
+											path="gender" value="Male" disabled="false" />Male
 									</label> <label class="radio-inline"> <form:radiobutton
-											path="gender" value="Female" disabled="true" />Female
+											path="gender" value="Female" disabled="false" />Female
 									</label> <label class="radio-inline"> <form:radiobutton
-											path="gender" value="Others" disabled="true" />Others
+											path="gender" value="Others" disabled="false" />Others
 									</label>
 
 								</div>
@@ -158,7 +143,7 @@
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-phone"></i></span>
-									<form:input path="contactNo" disabled="true"
+									<form:input path="contactNo" disabled="false"
 										class="form-control" aria-describedby="basic-addon1" />
 								</div>
 							</div>
@@ -167,13 +152,32 @@
 								<div class="input-group">
 									<span class="input-group-addon" id="basic-addon1"><i
 										class="glyphicon glyphicon-user"></i></span>
-									<form:input path="username" disabled="true"
+									<form:input path="username" disabled="false"
 										class="form-control" aria-describedby="basic-addon1" />
 								</div>
 							</div>
+							<div class="form-group">
+								<label for="password">Password</label>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1"><i
+										class="glyphicon glyphicon-star"></i></span>
+									<form:input type = "password" path="password" disabled="false"
+										class="form-control" aria-describedby="basic-addon1" />
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="cpassword">Confirm Password</label>
+								<div class="input-group">
+									<span class="input-group-addon" id="basic-addon1"><i
+										class="glyphicon glyphicon-star"></i></span>
+									<input type="password" name="cpassword" id = "cpassword" class="form-control" 
+									placeholder="Confirm Password" aria-describedby="basic-addon1"/>
+								</div>
+							</div>
 							<button type="submit" class="btn btn-primary">
-								<i class="glyphicon glyphicon-pencil"></i> Edit
+								<i class="glyphicon glyphicon-ok"></i> Done
 							</button>
+							<form:hidden path="id" />
 						</form:form>
 						<!-- End Form -->
 					</div>
@@ -181,7 +185,7 @@
 			</div>
 			<div class="col-md-4"></div>
 		</div>
-		<hr/>
+		<hr />
 	</div>
 	<div class="footer-clean">
 		<footer>

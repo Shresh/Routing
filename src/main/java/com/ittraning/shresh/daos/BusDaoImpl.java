@@ -7,6 +7,7 @@ import javax.annotation.Resource;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.ejb.criteria.expression.ConcatExpression;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,7 +22,7 @@ public class BusDaoImpl implements BusDao{
 	@Override
 	@Transactional
 	public Long insert(Bus bus) {
-		Session session = sessionFactory.getCurrentSession();
+		Session session = sessionFactory.getCurrentSession();		
 		Long id = (Long) session.save(bus);
 		return id;
 	}
@@ -36,6 +37,7 @@ public class BusDaoImpl implements BusDao{
 	}
 
 	@Override
+	@Transactional
 	public Bus get(Long id) {
 		Session session = sessionFactory.openSession();
 		Bus bus = (Bus) session.get(Bus.class, id);
@@ -44,12 +46,14 @@ public class BusDaoImpl implements BusDao{
 	}
 
 	@Override
+	@Transactional
 	public void insertUpdate(Bus bus) {
 		Session session = sessionFactory.getCurrentSession();
 		session.saveOrUpdate(bus);		
 	}
 
 	@Override
+	@Transactional
 	public void delete(Long id) {
 		Session session = sessionFactory.getCurrentSession();
 		Bus bus = (Bus) session.get(Bus.class, id);

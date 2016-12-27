@@ -29,7 +29,7 @@
 </head>
 <body>
 	<!-- Start navbar -->
-	<nav class="navbar navbar-inverse navigation-clean-button"
+	<nav class="navbar navbar-inverse navigation-clean-button  navbar-fixed-top "
 		style="border-radius: 0px !important; margin-bottom: 0px;">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -41,48 +41,27 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand navbar-link" href="adminHome">Routing</a>
+				<a class="navbar-brand navbar-link" href="userhome">Routing</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navcol-1">
+			<div class="collapse navbar-collapse"
+				id="navcol-1">
 				<ul class="nav navbar-nav">
-					<li role="presentation"><a href="adminHome">Home
-							<span class="sr-only"></span>
-					</a></li>
+					<li role = "presentation"><a href="userhome">Home <span
+							class="sr-only"></span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation" class = "active"><a href="adminVProfile">View
-									Profile</a></li>
-							<li role="presentation"><a href="adminEProfile">Edit
-									Profile</a></li>
-						</ul></li>
-					<li class="dropdown" role="presentation"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Bus<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="adBus">Add Bus</a></li>
-							<li role="presentation"><a href="viewBus">View Bus</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Profile<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation" class = "active"><a href="userVProfile">View Profile</a></li>
+							<li role = "presentation"><a href="userEProfile">Edit Profile</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addLocation">Add
-									Location</a></li>
-							<li role="presentation"><a href="viewLocation">View
-									Location</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Set
-							Route<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addRoute">Add Route</a></li>
-							<li role="presentation"><a href="viewRoute">View Route</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Route<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation"><a href="userViewRoute">View Route</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -95,6 +74,7 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- End Nav bar -->
+
 
 	<p>
 		<br /> <br /> <br /> <br /> <br /> <br />
@@ -110,7 +90,7 @@
 						</div>
 						<!-- Start Form -->
 						<form:form method="POST" modelAttribute="user"
-							action="adminProfile">
+							action="userProfile">
 							<div class="form-group">
 								<label for="firstName">First Name</label>
 								<div class="input-group">
@@ -175,13 +155,13 @@
 								<i class="glyphicon glyphicon-pencil"></i> Edit
 							</button>
 						</form:form>
-						<!-- End Form -->
+					<!-- End Form -->
 					</div>
 				</div>
 			</div>
 			<div class="col-md-4"></div>
 		</div>
-		<hr/>
+		<hr />
 	</div>
 	<div class="footer-clean">
 		<footer>

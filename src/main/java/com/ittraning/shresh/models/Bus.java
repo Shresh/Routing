@@ -26,5 +26,5 @@ public class Bus {
 	}
 	public void setBusNo(String busNo) {
 		this.busNo = busNo;
-	}	
+	}
 }

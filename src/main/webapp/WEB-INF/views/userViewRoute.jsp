@@ -25,11 +25,12 @@
 	href="${pageContext.request.contextPath}/resources/css/Footer-Clean.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/resources/css/Navigation-with-Button1.css">
-<title>View Location</title>
+<title>Route</title>
 </head>
 <body>
+
 	<!-- Start navbar -->
-	<nav class="navbar navbar-inverse navigation-clean-button"
+	<nav class="navbar navbar-inverse navigation-clean-button  navbar-fixed-top "
 		style="border-radius: 0px !important; margin-bottom: 0px;">
 		<div class="container-fluid">
 			<!-- Brand and toggle get grouped for better mobile display -->
@@ -41,48 +42,27 @@
 						class="icon-bar"></span> <span class="icon-bar"></span> <span
 						class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand navbar-link" href="adminHome">Routing</a>
+				<a class="navbar-brand navbar-link" href="userhome">Routing</a>
 			</div>
 
 			<!-- Collect the nav links, forms, and other content for toggling -->
-			<div class="collapse navbar-collapse" id="navcol-1">
+			<div class="collapse navbar-collapse"
+				id="navcol-1">
 				<ul class="nav navbar-nav">
-					<li role="presentation"><a href="adminHome">Home
-							<span class="sr-only"></span>
-					</a></li>
+					<li role = "presentation"><a href="userhome">Home <span
+							class="sr-only"></span></a></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Profile<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="adminVProfile">View
-									Profile</a></li>
-							<li role="presentation"><a href="adminEProfile">Edit
-									Profile</a></li>
-						</ul></li>
-					<li class="dropdown" role="presentation"><a href="#"
-						class="dropdown-toggle" data-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false">Bus<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="adBus">Add Bus</a></li>
-							<li role="presentation"><a href="viewBus">View Bus</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Profile<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation"><a href="userVProfile">View Profile</a></li>
+							<li role = "presentation"><a href="userEProfile">Edit Profile</a></li>
 						</ul></li>
 					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Location<span
-							class="caret"></span></a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addLocation">Add
-									Location</a></li>
-							<li role="presentation" class = "active"><a href="viewLocation">View
-									Location</a></li>
-						</ul></li>
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Set
-							Route<span class="caret"></span>
-					</a>
-						<ul class="dropdown-menu" role="menu">
-							<li role="presentation"><a href="addRoute">Add Route</a></li>
-							<li role="presentation"><a href="viewRoute">View Route</a></li>
+						data-toggle="dropdown" aria-haspopup="true"
+						aria-expanded="false">Route<span class="caret"></span></a>
+						<ul class="dropdown-menu" role = "menu">
+							<li role = "presentation" class = "active"><a href="userViewRoute">View Route</a></li>
 						</ul></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right">
@@ -95,41 +75,44 @@
 		<!-- /.container-fluid -->
 	</nav>
 	<!-- End Nav bar -->
+
+
+	<p>
+		<br /> <br /> <br /> <br />
+	</p>
 	<div class="container-fluid">
-		<p>
-			<br /> <br /> <br /> <br />
-		</p>
 		<div class="row">
 			<div class="col-md-3"></div>
 			<div class="col-md-6">
 				<div class="panel panel-default">
 					<div class="panel-body">
 						<div class="text-center">
-							<h2>View Location</h2>
+							<h2>Routes</h2>
 						</div>
-						<table id="myTable" class="table table-bordered table-striped">
+						<!-- Start table -->
+						<table class="table table-bordered table-striped" id="myTable">
 							<thead class="thead-inverse">
 								<tr>
-									<th>Location</th>
+									<th>Bus No</th>
+									<th>From</th>
+									<th>To</th>
 									<th>Actions</th>
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach var="row" items="${locationList}">
+								<c:forEach var="row" items="${routeList}">
 									<tr>
-										<td>${row.getLocation()}</td>
+										<td>${row.getBus().getBusNo()}</td>
+										<td>${row.getLocation1().getLocation()}</td>
+										<td>${row.getLocation2().getLocation()}</td>
 										<td><input type="button"
-											onclick="editLocation(${row.id })" value="Edit"
-											style="color: green" />&emsp;<input type="button"
-											onclick="deleteLocation(${row.id })" value="Delete"
-											style="color: red" /></td>
+											onclick="viewBusRoute(${row.id })" value="View"
+											style="color: green" /></td>
 									</tr>
 								</c:forEach>
 							</tbody>
 						</table>
-					</div>
-					<div>
-						<h6 style="color: red">${errorDelete}</h6>
+						<!-- End table -->
 					</div>
 				</div>
 			</div>
@@ -161,21 +144,13 @@
 			</div>
 		</footer>
 	</div>
-	<!-- Wrapper -->
 	<script type="text/javascript">
-		function editLocation(id){
-			location.href = "${pageContext.request.contextPath}/" + id + "/editL";
-		}
-	
-		function deleteLocation(id){
-			var r = confirm("Are you sure you want to delete this recored?");
-			if (r == true) {
-				window.location = "${pageContext.request.contextPath}/" + id + "/deleteL";
-			} 		
+		function viewBusRoute(id){
+			location.href = "${pageContext.request.contextPath}/" + id + "/viewBRoute";
 		}
 		$(document).ready(function(){
-		    $('#myTable').DataTable();
-		});
+	        $('#myTable').DataTable();
+	    });
 	</script>
 	<script
 		src="${pageContext.request.contextPath}/resources/js/bootstrap.min.js"
